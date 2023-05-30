@@ -7,7 +7,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
+builder.Services.AddHttpClient();
+builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddDbContext<ITGDBContext>((serviceProvider, options) =>
 {
@@ -21,7 +22,6 @@ using (var serviceProvider = builder.Services.BuildServiceProvider())
     dbContext.Database.EnsureCreated();
     await dbContext.SeedData();
 }
-
 
 var app = builder.Build();
 
@@ -42,6 +42,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=ChiTietNhapXuats}/{action=Index}/{id?}");
 
 app.Run();

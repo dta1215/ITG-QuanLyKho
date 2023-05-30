@@ -1,0 +1,78 @@
+﻿@model IEnumerable<QuanLyKho.Models.ChiTietNhapXuat>
+
+@{
+    ViewData["Title"] = "Xuất nhập kho";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    string createMessage = TempData[Constants.TempDataKeys.createdMessage]?.ToString() ?? "";
+    string deletedMessage = TempData[Constants.TempDataKeys.successedDelete]?.ToString() ?? "";
+}
+
+<p>@(createMessage ?? deletedMessage)</p>
+
+@Html.Partial("_SearchPartial")
+
+<hr />
+<div>
+    <a asp-action="Create" class="btn btn-primary">Thêm mới</a>
+</div>
+<table class="table table-responsive table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.so_phieu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ngay_lap_phieu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ma_vt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ten_vt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dvt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sl_nhap)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sl_xuat)
+            </th>
+            <th>Thao tác</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.so_phieu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ngay_lap_phieu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ma_vt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ten_vt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dvt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sl_nhap)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sl_xuat)
+            </td>
+            <td>
+                <a asp-action="Edit" class="btn btn-outline-primary" asp-route-id="@item.Id">Sửa</a> 
+                <a asp-action="Details" class="btn btn-outline-primary" asp-route-id="@item.Id">Chi tiết</a> 
+                <a asp-action="Delete" class="btn btn-outline-danger" asp-route-id="@item.Id">Xóa</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

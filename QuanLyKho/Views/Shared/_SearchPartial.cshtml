@@ -1,0 +1,15 @@
+﻿
+@{
+    string searchTerm = TempData[Constants.TempDataKeys.searchTerm]?.ToString() ?? "";
+}
+
+@using (Html.BeginForm("Search", "ChiTietNhapXuats", FormMethod.Get)){
+    <div class="row">
+        <div class="col-10">
+            <input type="text" name="searchTerm" class="form-control" value="@searchTerm" placeholder="Nhập mã vật tư hoặc tên vật tư..." />
+        </div>
+        <div class="col-2">
+            <input type="submit" class="btn btn-outline-primary" value="Tìm kiếm" />
+        </div>
+    </div>
+}
