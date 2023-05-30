@@ -1,0 +1,73 @@
+﻿@page
+@model QuanLyKho.Controllers.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ChiTietNhapXuat[0].so_phieu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ChiTietNhapXuat[0].ngay_lap_phieu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ChiTietNhapXuat[0].ma_vt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ChiTietNhapXuat[0].ten_vt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ChiTietNhapXuat[0].dvt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ChiTietNhapXuat[0].sl_nhap)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ChiTietNhapXuat[0].sl_xuat)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.ChiTietNhapXuat) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.so_phieu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ngay_lap_phieu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ma_vt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ten_vt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dvt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sl_nhap)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sl_xuat)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

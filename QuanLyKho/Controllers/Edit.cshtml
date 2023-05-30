@@ -1,0 +1,66 @@
+﻿@page
+@model QuanLyKho.Controllers.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>ChiTietNhapXuat</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ChiTietNhapXuat.Id" />
+            <div class="form-group">
+                <label asp-for="ChiTietNhapXuat.so_phieu" class="control-label"></label>
+                <input asp-for="ChiTietNhapXuat.so_phieu" class="form-control" />
+                <span asp-validation-for="ChiTietNhapXuat.so_phieu" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ChiTietNhapXuat.ngay_lap_phieu" class="control-label"></label>
+                <input asp-for="ChiTietNhapXuat.ngay_lap_phieu" class="form-control" />
+                <span asp-validation-for="ChiTietNhapXuat.ngay_lap_phieu" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ChiTietNhapXuat.ma_vt" class="control-label"></label>
+                <input asp-for="ChiTietNhapXuat.ma_vt" class="form-control" />
+                <span asp-validation-for="ChiTietNhapXuat.ma_vt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ChiTietNhapXuat.ten_vt" class="control-label"></label>
+                <input asp-for="ChiTietNhapXuat.ten_vt" class="form-control" />
+                <span asp-validation-for="ChiTietNhapXuat.ten_vt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ChiTietNhapXuat.dvt" class="control-label"></label>
+                <input asp-for="ChiTietNhapXuat.dvt" class="form-control" />
+                <span asp-validation-for="ChiTietNhapXuat.dvt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ChiTietNhapXuat.sl_nhap" class="control-label"></label>
+                <input asp-for="ChiTietNhapXuat.sl_nhap" class="form-control" />
+                <span asp-validation-for="ChiTietNhapXuat.sl_nhap" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ChiTietNhapXuat.sl_xuat" class="control-label"></label>
+                <input asp-for="ChiTietNhapXuat.sl_xuat" class="form-control" />
+                <span asp-validation-for="ChiTietNhapXuat.sl_xuat" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
